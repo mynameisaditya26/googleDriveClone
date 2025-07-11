@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register | MyDrive</title>
+  <style>
+    body {
+      background-color: #1f2937;
+      color: #f9fafb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-box {
+      background: #374151;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      width: 360px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #4b5563;
+      border-radius: 6px;
+      font-size: 14px;
+      background-color: #1f2937;
+      color: #f9fafb;
+    }
+    button {
+      background: #22c55e;
+      color: white;
+      font-weight: bold;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #16a34a;
+    }
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <form action="/auth/register" method="POST" class="form-box">
+    <h2 style="font-size: 28px; margin-bottom: 24px;">Create Your Account 🚀</h2>
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="password" name="password" placeholder="Password" required />
+    <button type="submit">Register</button>
+    <p style="font-size: 14px;">Already registered? <a href="/auth/login">Login</a></p>
+  </form>
+</body>
+</html>
