@@ -53,6 +53,7 @@
     .btn-yellow:hover { background-color: #eab308; }
     .btn-red { background-color: #ef4444; color: white; }
     .btn-red:hover { background-color: #dc2626; }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -75,8 +76,13 @@
     }
     .card form {
       display: flex;
-      gap: 6px;
+      flex-direction: column;
+      gap: 8px;
       margin-top: 0.5rem;
+    }
+    .card form button {
+      width: fit-content;
+      align-self: flex-start;
     }
     .card a {
       color: #60a5fa;
@@ -93,16 +99,19 @@
   <main>
     <h2>Your Files & Folders</h2>
 
+    <!-- Create Folder -->
     <form action="/folder" method="POST" class="form-group">
       <input type="text" name="name" placeholder="New Folder Name" required />
       <button class="btn-green" type="submit">Create Folder</button>
     </form>
 
+    <!-- Upload File -->
     <form action="/upload" method="POST" enctype="multipart/form-data" class="form-group">
       <input type="file" name="file" required />
       <button class="btn-blue" type="submit">Upload File</button>
     </form>
 
+    <!-- Folders -->
     <h3>📁 Folders</h3>
     <div class="grid">
       <% folders.forEach(folder => { %>
@@ -123,6 +132,7 @@
       <% }) %>
     </div>
 
+    <!-- Files -->
     <h3>📄 Files</h3>
     <div class="grid">
       <% files.forEach(file => { %>
