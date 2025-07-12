@@ -1,6 +1,22 @@
-<header style="background-color: #111827; color: #f9fafb; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
-  <h1 style="font-size: 22px; font-weight: bold; letter-spacing: 1px;">📁 MyDrive</h1>
+<header style="background: linear-gradient(to right, #1f2937, #111827); color: #f9fafb; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); border-bottom: 1px solid #374151;">
+  <h1 style="font-size: 24px; font-weight: 700; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px;">
+    <span style="font-size: 26px;">📁</span> MyDrive
+  </h1>
   <form action="/auth/logout" method="POST">
-    <button type="submit" style="background-color: #ef4444; padding: 0.6rem 1.4rem; border-radius: 6px; border: none; color: white; font-weight: 600; cursor: pointer;">Logout</button>
+    <button type="submit" style="
+      background: linear-gradient(to right, #ef4444, #dc2626);
+      padding: 0.6rem 1.6rem;
+      border-radius: 8px;
+      border: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.6);
+      transition: background 0.3s ease, transform 0.2s ease;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      Logout
+    </button>
   </form>
 </header>
