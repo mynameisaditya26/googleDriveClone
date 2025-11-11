@@ -2,32 +2,45 @@
 <html lang="en">
 <head>
   <title>Dashboard | MyDrive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* ===== Base Styling ===== */
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #111827;
       color: #f3f4f6;
+      line-height: 1.6;
     }
+
     main {
-      padding: 2rem 3rem;
+      padding: clamp(1rem, 4vw, 2rem) clamp(1rem, 5vw, 3rem);
+      max-width: 1200px;
+      margin: 0 auto;
     }
+
     h2 {
-      font-size: 28px;
+      font-size: clamp(22px, 3vw, 28px);
       color: #f9fafb;
       margin-bottom: 1rem;
+      text-align: center;
     }
+
     h3 {
-      font-size: 20px;
+      font-size: clamp(18px, 2.5vw, 20px);
       margin: 2.5rem 0 1rem;
       color: #d1d5db;
     }
+
+    /* ===== Form Styling ===== */
     .form-group {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 1.5rem;
+      justify-content: center;
     }
+
     input[type="text"], input[type="file"] {
       padding: 10px;
       border-radius: 6px;
@@ -35,8 +48,10 @@
       font-size: 14px;
       background-color: #1f2937;
       color: #f9fafb;
-      flex: 1;
+      flex: 1 1 250px;
+      min-width: 180px;
     }
+
     button {
       padding: 10px 16px;
       border-radius: 6px;
@@ -44,27 +59,45 @@
       font-weight: bold;
       border: none;
       cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
     .btn-green { background-color: #10b981; color: white; }
     .btn-green:hover { background-color: #059669; }
+
     .btn-blue { background-color: #3b82f6; color: white; }
     .btn-blue:hover { background-color: #2563eb; }
+
     .btn-yellow { background-color: #facc15; color: #1f2937; }
     .btn-yellow:hover { background-color: #eab308; }
+
     .btn-red { background-color: #ef4444; color: white; }
     .btn-red:hover { background-color: #dc2626; }
 
+    /* ===== Grid Layout ===== */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 1.2rem;
     }
+
     .card {
       background: #1f2937;
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    }
+
     .card-title {
       font-weight: 600;
       font-size: 16px;
@@ -72,30 +105,67 @@
       color: #f9fafb;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      word-break: break-all;
     }
+
     .card form {
       display: flex;
       flex-direction: column;
       gap: 8px;
       margin-top: 0.5rem;
     }
+
     .card form button {
       width: fit-content;
       align-self: flex-start;
     }
+
     .card a {
       color: #60a5fa;
       font-size: 13px;
       text-decoration: none;
+      word-break: break-all;
     }
+
     .card a:hover {
       text-decoration: underline;
+    }
+
+    /* ===== Responsive Adjustments ===== */
+    @media (max-width: 768px) {
+      main {
+        padding: 1.5rem;
+      }
+      h2 {
+        text-align: center;
+      }
+      .form-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      input[type="text"], input[type="file"], button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 0.8rem;
+      }
+      .card-title {
+        font-size: 15px;
+      }
+      button {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
     }
   </style>
 </head>
 <body>
   <%- include('partials/header') %>
+
   <main>
     <h2>Your Files & Folders</h2>
 

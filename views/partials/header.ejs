@@ -1,8 +1,29 @@
-<header style="background: linear-gradient(to right, #1f2937, #111827); color: #f9fafb; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6); border-bottom: 1px solid #374151;">
-  <h1 style="font-size: 24px; font-weight: 700; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px;">
-    <span style="font-size: 26px;">📁</span> MyDrive
+<header style="
+  background: linear-gradient(to right, #1f2937, #111827);
+  color: #f9fafb;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid #374151;
+  gap: 1rem;
+">
+  <h1 style="
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+  ">
+    <span style="font-size: clamp(20px, 4vw, 26px);">📁</span> MyDrive
   </h1>
-  <form action="/auth/logout" method="POST">
+
+  <form action="/auth/logout" method="POST" style="flex-shrink: 0;">
     <button type="submit" style="
       background: linear-gradient(to right, #ef4444, #dc2626);
       padding: 0.6rem 1.6rem;
@@ -10,13 +31,38 @@
       border: none;
       color: #ffffff;
       font-weight: 600;
-      font-size: 15px;
+      font-size: clamp(13px, 2vw, 15px);
       letter-spacing: 0.5px;
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(239, 68, 68, 0.6);
       transition: background 0.3s ease, transform 0.2s ease;
-    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      width: 100%;
+      max-width: 160px;
+    " 
+    onmouseover="this.style.transform='scale(1.05)'" 
+    onmouseout="this.style.transform='scale(1)'">
       Logout
     </button>
   </form>
 </header>
+
+<style>
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  header h1 {
+    justify-content: center;
+  }
+  header form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  header button {
+    width: 80%;
+  }
+}
+</style>
